@@ -14,36 +14,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jkiss.dbeaver.ext.postgresql.model;
 
-import org.jkiss.code.NotNull;
-import org.jkiss.dbeaver.model.DBPNamedObject;
+package org.jkiss.dbeaver.ext.kingbase.ui.internal;
 
-/**
- * PostgreTypeType
- */
-public enum PostgreTypeType implements DBPNamedObject
-{
-    a("Abstract"), // This is non-standard extension (PG Enterprise?)
-    b("Base"),
-    c("Composite"),
-    d("Domain"),
-    e("Enum type"),
-    m("Multirange"), // Starting with the 14 PG version
-    p("Pseudo-type"),
-    n("nested-table-type"),//Kingbase type
-    r("Range");
-	
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.BundleContext;
 
-    private final String desc;
+public class Activator extends AbstractUIPlugin {
 
-    PostgreTypeType(String desc) {
-        this.desc = desc;
+    private static final String PLUGIN_ID = "org.jkiss.dbeaver.ext.kingbase.ui";
+
+    @Override
+    public void start(BundleContext context) throws Exception {
+        super.start(context);
     }
 
-    @NotNull
     @Override
-    public String getName() {
-        return desc;
+    public void stop(BundleContext context) throws Exception {
+        super.stop(context);
+    }
+
+    public static ImageDescriptor getImageDescriptor(String path) {
+        return imageDescriptorFromPlugin(PLUGIN_ID, path);
     }
 }
